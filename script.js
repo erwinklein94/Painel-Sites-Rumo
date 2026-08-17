@@ -16,7 +16,11 @@ const ICONES = {
   cartas:    '<svg viewBox="0 0 24 24"><rect x="7" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h11"/></svg>',
   leitor:    '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6"/><circle cx="11" cy="14" r="2.5"/><path d="m13 16 2.5 2.5"/></svg>',
   relatorio: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>',
-  trem:      '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14"/><circle cx="9" cy="14" r="0.5"/><circle cx="15" cy="14" r="0.5"/><path d="m8 21 1.5-4M16 21l-1.5-4M6 21h12"/></svg>'
+  trem:      '<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14"/><circle cx="9" cy="14" r="0.5"/><circle cx="15" cy="14" r="0.5"/><path d="m8 21 1.5-4M16 21l-1.5-4M6 21h12"/></svg>',
+  empeno:    '<svg viewBox="0 0 24 24"><path d="M3 7c4-4 7 4 11 0s7 0 7 0M3 17c4-4 7 4 11 0s7 0 7 0"/><path d="M3 12h18"/></svg>',
+  intervalo: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M8 2h8"/></svg>',
+  portal:    '<svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M8 21v-6h8v6M8 9h.01M12 9h.01M16 9h.01"/></svg>',
+  infra:     '<svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V10M18 21V10M4 10h16L12 3 4 10z"/><path d="M9 14h6M9 18h6"/></svg>'
 };
 
 const LINKS = [
@@ -31,7 +35,11 @@ const LINKS = [
   { nome: "Flash Cards",                        url: "https://erwinklein94.github.io/Flash-Card-Qualidade/",                  icone: "cartas" },
   { nome: "Leitor de Iauditor",                 url: "https://erwinklein94.github.io/Leitor-Iauditor/",                       icone: "leitor" },
   { nome: "RDO — Relatório Diário Operacional", url: "https://erwinklein94.github.io/Relat-rio-Di-rio-Operacional-RDO/",      icone: "relatorio" },
-  { nome: "Trem da Rumo",                       url: "https://erwinklein94.github.io/Jogo-Rumo-Cobra-Trem/",                  icone: "trem" }
+  { nome: "Trem da Rumo",                       url: "https://erwinklein94.github.io/Jogo-Rumo-Cobra-Trem/",                  icone: "trem" },
+  { nome: "Empeno/Torção",                      url: "https://erwinklein94.github.io/Empeno-Torcao/",                         icone: "empeno" },
+  { nome: "Gestão de Intervalo",                url: "https://erwinklein94.github.io/Gestao-de-Intervalo/login.html",         icone: "intervalo" },
+  { nome: "Portal de Qualidade de Materiais",   url: "https://erwinklein94.github.io/Portal-de-Qualidade-de-Materiais/",     icone: "portal" },
+  { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Dashboard-Plano-de-Manutencao-de-Infra/", icone: "infra" }
 ];
 
 const grade = document.getElementById("grade");
