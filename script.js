@@ -20,7 +20,8 @@ const ICONES = {
   empeno:    '<svg viewBox="0 0 24 24"><path d="M3 7c4-4 7 4 11 0s7 0 7 0M3 17c4-4 7 4 11 0s7 0 7 0"/><path d="M3 12h18"/></svg>',
   intervalo: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M8 2h8"/></svg>',
   portal:    '<svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M8 21v-6h8v6M8 9h.01M12 9h.01M16 9h.01"/></svg>',
-  infra:     '<svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V10M18 21V10M4 10h16L12 3 4 10z"/><path d="M9 14h6M9 18h6"/></svg>'
+  infra:     '<svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V10M18 21V10M4 10h16L12 3 4 10z"/><path d="M9 14h6M9 18h6"/></svg>',
+  recebidos: '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 3v4M16 3v4M8 12h8M8 16h5"/></svg>'
 };
 
 const LINKS = [
@@ -39,7 +40,8 @@ const LINKS = [
   { nome: "Empeno/Torção",                      url: "https://erwinklein94.github.io/Empeno-Torcao/",                         icone: "empeno" },
   { nome: "Gestão de Intervalo",                url: "https://erwinklein94.github.io/Gestao-de-Intervalo/login.html",         icone: "intervalo" },
   { nome: "Portal de Qualidade de Materiais",   url: "https://erwinklein94.github.io/Portal-de-Qualidade-de-Materiais/",     icone: "portal" },
-  { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Dashboard-Plano-de-Manutencao-de-Infra/", icone: "infra" }
+  { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Dashboard-Plano-de-Manutencao-de-Infra/", icone: "infra" },
+  { nome: "Recebidos Conprem",                  url: "https://erwinklein94.github.io/Leitor-Recebidos-Conprem/",                icone: "recebidos" }
 ];
 
 const grade = document.getElementById("grade");
