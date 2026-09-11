@@ -1,4 +1,7 @@
-/* Painel de Sistemas — identidade visual Rumo */
+/* Painel de Sistemas — identidade visual Rumo
+   Layout de uma tela só: cabeçalho e rodapé fixos na coluna,
+   grade centralizada e com zoom-out automático (--escala,
+   calculado em script.js) quando os cartões não couberem. */
 
 :root {
   --azul: #003865;
@@ -11,24 +14,31 @@
   --branco: #fff;
   --sombra: 0 12px 28px rgba(0, 56, 101, 0.09);
   --raio: 14px;
+  --escala: 1;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { height: 100%; }
 
 body {
   font-family: Verdana, Geneva, sans-serif;
   background: var(--cinza-fundo);
   color: var(--azul);
   min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* ---------- Cabeçalho ---------- */
 
 .topo {
+  flex: none;
   position: relative;
   overflow: hidden;
-  min-height: 286px;
-  padding: 32px max(24px, calc((100vw - 1120px) / 2)) 54px;
+  padding: clamp(18px, 3vh, 32px) max(24px, calc((100vw - 1420px) / 2)) clamp(34px, 6vh, 54px);
   background: var(--azul);
   color: var(--branco);
 }
@@ -37,10 +47,10 @@ body {
   content: "";
   position: absolute;
   right: -80px;
-  bottom: -165px;
-  width: 420px;
-  height: 250px;
-  border: 34px solid var(--verde-claro);
+  bottom: clamp(-150px, -18vh, -110px);
+  width: clamp(280px, 30vw, 420px);
+  height: clamp(170px, 24vh, 250px);
+  border: clamp(22px, 3vh, 34px) solid var(--verde-claro);
   border-left-color: var(--azul-claro);
   border-radius: 50%;
   transform: rotate(-12deg);
@@ -54,7 +64,7 @@ body {
   align-items: center;
   gap: 9px;
   letter-spacing: 0.12em;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
   font-weight: 700;
 }
 
@@ -70,20 +80,20 @@ body {
   position: relative;
   z-index: 1;
   max-width: 760px;
-  margin-top: 44px;
+  margin-top: clamp(14px, 3.4vh, 40px);
 }
 
 .chapeu {
-  margin-bottom: 10px;
+  margin-bottom: clamp(4px, 1vh, 10px);
   color: var(--verde-claro);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .topo h1 {
-  font-size: clamp(2rem, 5vw, 3.65rem);
+  font-size: clamp(1.6rem, 3.4vw, 2.9rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.045em;
@@ -91,33 +101,56 @@ body {
 
 .subtitulo {
   max-width: 620px;
-  margin-top: 14px;
+  margin-top: clamp(6px, 1.4vh, 14px);
   color: #d7e0e5;
-  font-size: clamp(0.9rem, 2vw, 1.05rem);
-  line-height: 1.6;
+  font-size: clamp(0.8rem, 1.1vw, 0.98rem);
+  line-height: 1.5;
 }
 
-/* ---------- Grade simétrica ---------- */
+/* ---------- Área da grade ---------- */
+
+main {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding-bottom: clamp(16px, 3vh, 40px);
+}
+
+/* ---------- Grade simétrica ----------
+   Flex em vez de grid: a última linha fica centralizada, e não
+   encostada à esquerda, quando o total de sistemas não fecha
+   um múltiplo exato do número de colunas. */
 
 .grade {
-  max-width: 1120px;
+  --colunas: 6;
+  --espaco: clamp(12px, 1.2vw, 18px);
+  max-width: 1420px;
   margin: -28px auto 0;
   padding: 0 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--espaco);
   position: relative;
   z-index: 2;
+  transform: scale(var(--escala));
+  transform-origin: top center;
 }
 
 /* ---------- Botões (cartões) ---------- */
 
 .botao {
+  flex: 0 0 calc((100% - (var(--colunas) - 1) * var(--espaco)) / var(--colunas));
+  /* Sem isso, um rótulo sem espaço (ex.: "Empeno/Torção") força
+     o cartão a ficar mais largo que a coluna e sobra sozinho na
+     linha, quebrando a simetria da grade. */
+  min-width: 0;
   display: flex;
   align-items: center;
-  gap: 16px;
-  min-height: 108px;
-  padding: 20px;
+  gap: 13px;
+  /* Cresce em telas altas para não sobrar vazio embaixo,
+     encolhe em janelas baixas antes de o zoom-out precisar agir. */
+  min-height: clamp(88px, 13vh, 150px);
+  padding: 16px;
   border: 1px solid var(--cinza-borda);
   border-radius: var(--raio);
   background: var(--branco);
@@ -144,8 +177,8 @@ body {
 
 .icone {
   flex: none;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   display: grid;
   place-items: center;
@@ -160,8 +193,8 @@ body {
 }
 
 .icone svg {
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   stroke: currentColor;
   fill: none;
   stroke-width: 1.8;
@@ -170,17 +203,21 @@ body {
 }
 
 .rotulo {
+  min-width: 0;
   font-weight: 700;
-  font-size: 0.94rem;
-  line-height: 1.45;
+  font-size: 0.86rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 /* ---------- Rodapé ---------- */
 
 .rodape {
-  max-width: 1072px;
-  margin: 48px auto 0;
-  padding: 24px 0 32px;
+  flex: none;
+  width: 100%;
+  max-width: 1372px;
+  margin: 0 auto;
+  padding: clamp(12px, 2vh, 20px) 24px clamp(14px, 2.4vh, 24px);
   border-top: 1px solid var(--cinza-borda);
   color: var(--cinza-texto);
   font-size: 0.78rem;
@@ -200,11 +237,29 @@ body {
   .botao { transition: none; }
 }
 
-@media (max-width: 620px) {
-  .topo { min-height: 260px; padding: 24px 20px 48px; }
-  .topo-conteudo { margin-top: 40px; }
+@media (max-width: 1300px) { .grade { --colunas: 5; } }
+@media (max-width: 1100px) { .grade { --colunas: 4; } }
+@media (max-width: 900px)  { .grade { --colunas: 3; } }
+
+/* Telas pequenas: cabeçalho e cartões bem mais enxutos, senão
+   os 17 sistemas não cabem em uma tela sem virar letra miúda. */
+@media (max-width: 680px) {
+  .grade { --colunas: 2; padding: 0 14px; }
+  .botao { min-height: clamp(56px, 7.5vh, 84px); gap: 9px; padding: 10px; }
+  .icone { width: 34px; height: 34px; border-radius: 9px; }
+  .icone svg { width: 18px; height: 18px; }
+  .rotulo { font-size: 0.73rem; line-height: 1.25; }
+  .topo { padding-bottom: 30px; }
   .topo::after { right: -190px; opacity: 0.55; }
-  .grade { grid-template-columns: 1fr; padding: 0 16px; gap: 14px; }
-  .botao { min-height: 92px; }
-  .rodape { margin: 36px 16px 0; flex-direction: column; }
+  .topo-conteudo { margin-top: 12px; }
+  .topo h1 { font-size: clamp(1.35rem, 6vw, 1.8rem); }
+  .subtitulo { margin-top: 6px; font-size: 0.78rem; line-height: 1.4; }
+  .rodape { padding-left: 16px; padding-right: 16px; font-size: 0.72rem; }
+}
+
+/* 2 colunas até bem estreito: metade da altura de 1 coluna,
+   o que deixa o zoom-out bem menos agressivo. */
+@media (max-width: 330px) {
+  .grade { --colunas: 1; }
+  .rodape { flex-direction: column; gap: 6px; }
 }

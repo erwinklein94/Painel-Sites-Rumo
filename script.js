@@ -46,11 +46,66 @@ const LINKS = [
 
 const grade = document.getElementById("grade");
 
+/* Espaço de largura zero depois da barra: em cartão estreito o
+   rótulo quebra em "Empeno/" + "Torção", e não no meio da
+   palavra. Não muda o texto lido nem o que é copiado. */
+const comQuebraNaBarra = texto => texto.replace(/\//g, "/​");
+
 grade.innerHTML = LINKS.map(link => `
   <a class="botao" href="${link.url}" target="_blank" rel="noopener">
     <span class="icone" aria-hidden="true">${ICONES[link.icone]}</span>
-    <span class="rotulo">${link.nome}</span>
+    <span class="rotulo">${comQuebraNaBarra(link.nome)}</span>
   </a>
 `).join("");
 
 document.getElementById("contador").textContent = `${LINKS.length} sistemas disponíveis`;
+
+/* ============================================================
+   Zoom automático da grade
+   Reduz a grade até que todos os cartões caibam entre o
+   cabeçalho e o rodapé, sem rolagem. Nunca amplia além de 100%
+   e nunca reduz abaixo de ESCALA_MINIMA (aí sim volta a rolar,
+   para os rótulos não ficarem ilegíveis).
+   ============================================================ */
+
+const ESCALA_MINIMA = 0.68;
+const topo = document.querySelector(".topo");
+const rodape = document.querySelector(".rodape");
+const principal = document.querySelector("main");
+
+function ajustarEscala() {
+  // Zera transformação e compensação para medir o tamanho natural.
+  document.documentElement.style.setProperty("--escala", "1");
+  grade.style.marginBottom = "0px";
+
+  const alturaGrade = grade.offsetHeight;
+  if (!alturaGrade) return;
+
+  const estiloGrade = getComputedStyle(grade);
+  const estiloPrincipal = getComputedStyle(principal);
+
+  // A grade sobe sobre o cabeçalho (margin-top negativa), então
+  // essa sobreposição conta como espaço a mais.
+  const sobreposicao = parseFloat(estiloGrade.marginTop) || 0;
+  const folgaInferior = parseFloat(estiloPrincipal.paddingBottom) || 0;
+
+  const disponivel = document.documentElement.clientHeight
+    - topo.offsetHeight
+    - rodape.offsetHeight
+    - sobreposicao
+    - folgaInferior;
+
+  const escala = Math.max(ESCALA_MINIMA, Math.min(1, disponivel / alturaGrade));
+  document.documentElement.style.setProperty("--escala", escala.toFixed(4));
+
+  // O transform não encolhe a caixa de layout: sem compensar,
+  // sobraria espaço morto embaixo e a página rolaria à toa.
+  grade.style.marginBottom = `-${(alturaGrade * (1 - escala)).toFixed(2)}px`;
+}
+
+ajustarEscala();
+window.addEventListener("resize", ajustarEscala);
+window.addEventListener("orientationchange", ajustarEscala);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(ajustarEscala);
+}
