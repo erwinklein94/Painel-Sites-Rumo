@@ -242,7 +242,7 @@ main {
 @media (max-width: 900px)  { .grade { --colunas: 3; } }
 
 /* Telas pequenas: cabeçalho e cartões bem mais enxutos, senão
-   os 17 sistemas não cabem em uma tela sem virar letra miúda. */
+   os 19 sistemas não cabem em uma tela sem virar letra miúda. */
 @media (max-width: 680px) {
   .grade { --colunas: 2; padding: 0 14px; }
   .botao { min-height: clamp(56px, 7.5vh, 84px); gap: 9px; padding: 10px; }

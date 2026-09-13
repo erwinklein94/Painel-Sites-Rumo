@@ -21,7 +21,9 @@ const ICONES = {
   intervalo: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/><path d="M8 2h8"/></svg>',
   portal:    '<svg viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M8 21v-6h8v6M8 9h.01M12 9h.01M16 9h.01"/></svg>',
   infra:     '<svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V10M18 21V10M4 10h16L12 3 4 10z"/><path d="M9 14h6M9 18h6"/></svg>',
-  recebidos: '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 3v4M16 3v4M8 12h8M8 16h5"/></svg>'
+  recebidos: '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 3v4M16 3v4M8 12h8M8 16h5"/></svg>',
+  semanal:   '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7 14h2M11 14h2M15 14h2M7 17.5h2M11 17.5h2"/></svg>',
+  fiscalizacao: '<svg viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M15 4h3a2 2 0 0 1 2 2v4"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M8 11h5M8 15h2"/><circle cx="16.5" cy="16.5" r="3"/><path d="m18.7 18.7 2.3 2.3"/></svg>'
 };
 
 const LINKS = [
@@ -41,7 +43,9 @@ const LINKS = [
   { nome: "Gestão de Intervalo",                url: "https://erwinklein94.github.io/Gestao-de-Intervalo/login.html",         icone: "intervalo" },
   { nome: "Portal de Qualidade de Materiais",   url: "https://erwinklein94.github.io/Portal-de-Qualidade-de-Materiais/",     icone: "portal" },
   { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Dashboard-Plano-de-Manutencao-de-Infra/", icone: "infra" },
-  { nome: "Recebidos Conprem",                  url: "https://erwinklein94.github.io/Leitor-Recebidos-Conprem/",                icone: "recebidos" }
+  { nome: "Recebidos Conprem",                  url: "https://erwinklein94.github.io/Leitor-Recebidos-Conprem/",                icone: "recebidos" },
+  { nome: "Planejador Semanal",                 url: "https://erwinklein94.github.io/Planejador-Semanal/",                    icone: "semanal" },
+  { nome: "Planejamento Operacional da Fiscalização", url: "https://erwinklein94.github.io/Planejador-Operacional-Fiscalizacao-Qualidade/", icone: "fiscalizacao" }
 ];
 
 const grade = document.getElementById("grade");
