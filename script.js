@@ -42,7 +42,7 @@ const LINKS = [
   { nome: "Empeno/Torção",                      url: "https://erwinklein94.github.io/Empeno-Torcao/",                         icone: "empeno" },
   { nome: "Gestão de Intervalo",                url: "https://erwinklein94.github.io/Gestao-de-Intervalo/login.html",         icone: "intervalo" },
   { nome: "Portal de Qualidade de Materiais",   url: "https://erwinklein94.github.io/Portal-de-Qualidade-de-Materiais/",     icone: "portal" },
-  { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Dashboard-Plano-de-Manutencao-de-Infra/", icone: "infra" },
+  { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Coord-Infra-Trecho-2/", icone: "infra" },
   { nome: "Recebidos Conprem",                  url: "https://erwinklein94.github.io/Leitor-Recebidos-Conprem/",                icone: "recebidos" },
   { nome: "Planejador Semanal",                 url: "https://erwinklein94.github.io/Planejador-Semanal/",                    icone: "semanal" },
   { nome: "Planejamento Operacional da Fiscalização", url: "https://erwinklein94.github.io/Planejador-Operacional-Fiscalizacao-Qualidade/", icone: "fiscalizacao" }
