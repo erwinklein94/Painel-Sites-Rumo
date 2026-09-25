@@ -23,7 +23,8 @@ const ICONES = {
   infra:     '<svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V10M18 21V10M4 10h16L12 3 4 10z"/><path d="M9 14h6M9 18h6"/></svg>',
   recebidos: '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 8h16M8 3v4M16 3v4M8 12h8M8 16h5"/></svg>',
   semanal:   '<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M7 14h2M11 14h2M15 14h2M7 17.5h2M11 17.5h2"/></svg>',
-  fiscalizacao: '<svg viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M15 4h3a2 2 0 0 1 2 2v4"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M8 11h5M8 15h2"/><circle cx="16.5" cy="16.5" r="3"/><path d="m18.7 18.7 2.3 2.3"/></svg>'
+  fiscalizacao: '<svg viewBox="0 0 24 24"><path d="M9 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5"/><path d="M15 4h3a2 2 0 0 1 2 2v4"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M8 11h5M8 15h2"/><circle cx="16.5" cy="16.5" r="3"/><path d="m18.7 18.7 2.3 2.3"/></svg>',
+  procedimentos: '<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h5"/><path d="M14 2l6 6v2"/><path d="M14 2v6h6"/><path d="M8 13h3M8 17h2"/><path d="M13 17a4 4 0 0 1 7-2.6M20 12v2.4h-2.4"/><path d="M21 17a4 4 0 0 1-7 2.6M14 22v-2.4h2.4"/></svg>'
 };
 
 const LINKS = [
@@ -45,7 +46,8 @@ const LINKS = [
   { nome: "Plano de Manutenção de Infra",       url: "https://erwinklein94.github.io/Coord-Infra-Trecho-2/", icone: "infra" },
   { nome: "Recebidos Conprem",                  url: "https://erwinklein94.github.io/Leitor-Recebidos-Conprem/",                icone: "recebidos" },
   { nome: "Planejador Semanal",                 url: "https://erwinklein94.github.io/Planejador-Semanal/",                    icone: "semanal" },
-  { nome: "Planejamento Operacional da Fiscalização", url: "https://erwinklein94.github.io/Planejador-Operacional-Fiscalizacao-Qualidade/", icone: "fiscalizacao" }
+  { nome: "Planejamento Operacional da Fiscalização", url: "https://erwinklein94.github.io/Planejador-Operacional-Fiscalizacao-Qualidade/", icone: "fiscalizacao" },
+  { nome: "Procedimento Rumo",                  url: "https://erwinklein94.github.io/Atualizacao-Proc/",                      icone: "procedimentos" }
 ];
 
 const grade = document.getElementById("grade");
